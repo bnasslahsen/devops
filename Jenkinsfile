@@ -2,7 +2,7 @@
 
 node {
     stage('checkout') {
-        checkout scm
+       sudo checkout scm
     }
 
     docker.image('jhipster/jhipster:v5.3.1').inside('-u root -e MAVEN_OPTS="-Duser.home=./"') {
