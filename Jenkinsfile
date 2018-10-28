@@ -12,7 +12,7 @@ node {
 
         stage('clean') {
             sh "chmod +x mvnw"
-            sh "./mvnw clean"
+            sh "sudo ./mvnw clean"
         }
 
         stage('install tools') {
@@ -56,8 +56,8 @@ node {
 
     def dockerImage
     stage('build docker') {
-        sh "cp -R src/main/docker target/"
-        sh "cp target/*.war target/docker/"
+        sh "sudo cp -R src/main/docker target/"
+        sh "sudo cp target/*.war target/docker/"
         dockerImage = docker.build('bnasslahsen/devops-repo', 'target/docker')
     }
 
