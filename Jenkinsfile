@@ -2,7 +2,7 @@
 
 node {
     stage('checkout') {
-       sudo checkout scm
+       checkout scm
     }
 
     docker.image('jhipster/jhipster:v5.3.1').inside('-u root -e MAVEN_OPTS="-Duser.home=./"') {
@@ -12,7 +12,7 @@ node {
 
         stage('clean') {
             sh "chmod +x mvnw"
-            sh "sudo ./mvnw clean"
+            sh "./mvnw clean"
         }
 
         stage('install tools') {
